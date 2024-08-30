@@ -4,6 +4,9 @@ public class GameObject {
     private String name;
     private String tag;
 
+    public GameObject() {
+    }
+
     public boolean isEnabled() {
         return enabled;
     }
