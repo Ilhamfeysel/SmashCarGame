@@ -1,11 +1,18 @@
 public class Player extends GameObject{
     private PlayerHealth playerHealth = new PlayerHealth();
     private PlayerVehicle playerVehicle;
+    private PowerUp powerUp = PowerUpFactory.CreatePowerUp(-1);
 
     public Player(int health, PlayerVehicle playerVehicle) {
         super();
         playerHealth.setHealthUnits(health);
         this.playerVehicle = playerVehicle;
+    }
+
+    // Drive metod
+
+    public void ApplyDamage(int damage, int cash) {
+        powerUp.ApplyPowerup(this, damage, cash);
     }
 
     public void Accelerate() {
@@ -43,5 +50,9 @@ public class Player extends GameObject{
 
     public void setPlayerVehicle(PlayerVehicle playerVehicle) {
         this.playerVehicle = playerVehicle;
+    }
+
+    public PowerUp getPowerUp() {
+        return powerUp;
     }
 }
