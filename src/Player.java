@@ -10,6 +10,18 @@ public class Player extends GameObject{
     }
 
     // Drive metod
+    public void Drive() {
+        System.out.printf("\nPlayer id driving [Health:%d][%s]\n", playerHealth.getHealthUnits(), powerUp);
+        for(int i = 0; i < 10; i++) {
+            try {
+                Thread.sleep(300);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+            System.out.print(".");
+        }
+        System.out.println("");
+    }
 
     public void ApplyDamage(int damage, int cash) {
         powerUp.ApplyPowerup(this, damage, cash);
@@ -43,7 +55,6 @@ public class Player extends GameObject{
         this.playerHealth = playerHealth;
     }
 
-
     public PlayerVehicle getPlayerVehicle() {
         return playerVehicle;
     }
@@ -54,5 +65,9 @@ public class Player extends GameObject{
 
     public PowerUp getPowerUp() {
         return powerUp;
+    }
+
+    public void setPowerUp(PowerUp p) {
+        powerUp = p;
     }
 }
